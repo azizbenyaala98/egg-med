@@ -1,10 +1,19 @@
-import { gql, useMutation } from '@apollo/client';
+import { gql } from '@apollo/client';
 
-const ADD_TODO = gql`
-  mutation AddTodo($type: String!) {
-    addTodo(type: $type) {
-      id
-      type
+export const ADD_PRODUCT = gql`
+
+   mutation addProduct($title: String,$description:String,$price:String,$image:String) {
+      addProduct(title:$title,description:$description,price:$price,image:$image){
+        id 
+        title
+        description
+        price
+        image
+      }
     }
-  }
-`;
+  
+`
+export const DELETE_PRODUCT=gql`
+  mutation deleteProduct($id:ID){
+    deleteProduct(id:$id)
+  }`
